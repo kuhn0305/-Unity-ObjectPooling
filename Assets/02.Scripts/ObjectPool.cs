@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour {
+
     public static ObjectPool Instance;
+
     [SerializeField]
     private GameObject poolingObjectPrefab; 
+    [SerializeField]
+    private int poolCount = 10;
+
     Queue<Bullet> poolingObjectQueue = new Queue<Bullet>();
 
     private void Awake() 
     {
-        Instance = this; Initialize(10); 
+        Instance = this; Initialize(poolCount); 
     } 
 
     private void Initialize(int initCount) 
