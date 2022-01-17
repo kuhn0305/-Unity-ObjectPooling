@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AnonymousExample : MonoBehaviour
 {
-    delegate int MyDelegate(int a, int b);
 
     private void Start()
     {
@@ -17,6 +16,9 @@ public class AnonymousExample : MonoBehaviour
         var t = new { name = "Coderzero", age = 47 };
         Debug.LogFormat($"{t.name} {t.age}");
     }
+
+    delegate int MyDelegate(int a, int b);
+
 
     void AnonymousMethodExample()
     {
@@ -49,4 +51,7 @@ public class AnonymousExample : MonoBehaviour
         Action<int, int> action2 = (a, b) => Debug.LogFormat($"{a} {b}"); // Ãâ·Â : 1 2  
         action2(1, 2);
     }
+
+
+
 }
