@@ -4,6 +4,7 @@ class DelegateEventClass
 {
     public delegate void DelegateMethod(string message);
     public event DelegateMethod EventMethod;
+    public event DelegateMethod nonEventMethod;
 
     public void MultipleOf5(int number)
     {
