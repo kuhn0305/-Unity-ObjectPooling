@@ -19,7 +19,6 @@ public class AnonymousExample : MonoBehaviour
 
     delegate int MyDelegate(int a, int b);
 
-
     void AnonymousMethodExample()
     {
         MyDelegate sum;
@@ -42,7 +41,7 @@ public class AnonymousExample : MonoBehaviour
         Func<int> func1 = () => 1;
         Debug.LogFormat($"{func1()}"); // 출력 : 1  
 
-        Func<int, int> func2 = (a) => a * 2;
+        Func<int, int> func2 = (o) => o * 2;
         Debug.LogFormat($"{func2(3)}"); // 출력 : 6  
 
         Action action1 = () => Debug.Log("Action"); // 출력 : Action  
