@@ -20,6 +20,7 @@ public class EventExample : MonoBehaviour
     {
         ButtonEvent buttonEvent = new ButtonEvent();
         buttonEvent.Click += new EventHandler(ButtonClick);  // ③ 이벤트 연결    
+        buttonEvent.Click += new EventHandler(ButtonClick2);
 
         buttonEvent.MouseButtonDown(); // 출력 : 버튼 클릭 
         buttonEvent.MouseButtonDown(); // 출력 : 버튼 클릭 
@@ -29,5 +30,10 @@ public class EventExample : MonoBehaviour
     void ButtonClick(object sender, EventArgs e)  // ④ 실행 메서드 : 이벤트 발생 
     {
         Debug.Log("버튼 클릭");
+    }
+
+    void ButtonClick2(object sender, EventArgs e)  // ④ 실행 메서드 : 이벤트 발생 
+    {
+        //GameObject gameObject = Instantiate(prefab);
     }
 }
