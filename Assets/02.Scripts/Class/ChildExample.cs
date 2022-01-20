@@ -9,4 +9,9 @@ public class ChildExample : ClassExample
     {
         SampleMethod();
     }
+
+    public override void SampleMethod()
+    {
+        base.SampleMethod();
+    }
 }
