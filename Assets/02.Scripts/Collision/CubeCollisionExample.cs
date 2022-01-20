@@ -19,8 +19,24 @@ public class CubeCollisionExample : MonoBehaviour
         }
     }
 
+    private bool isProcessing;
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"{collision.gameObject.name}");
+
+        if(collision.gameObject.CompareTag("Target") && isProcessing)
+        {
+            Debug.Log($"{collision.gameObject.name}");
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        
     }
 }
