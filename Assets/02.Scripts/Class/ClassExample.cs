@@ -29,4 +29,9 @@ public class ClassExample : MonoBehaviour
     {
         Debug.Log("Parent Method!");
     }
+
+    public void SampleMethod_2()
+    {
+        Debug.Log("Parent Method!");
+    }
 }
