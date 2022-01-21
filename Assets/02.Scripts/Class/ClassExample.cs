@@ -18,6 +18,8 @@ public class ClassExample : MonoBehaviour
     private void Start()
     {
         SampleMethod();
+
+        SingletonExample.Instance.Method1();
     }
 
     public int GetValue3()
