@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour {
 
-    public static ObjectPool Instance;
+    private static ObjectPool instance;
 
     [SerializeField]
     private GameObject poolingObjectPrefab; 
@@ -13,9 +13,22 @@ public class ObjectPool : MonoBehaviour {
 
     Queue<Bullet> poolingObjectQueue = new Queue<Bullet>();
 
+    public static ObjectPool Instance
+    {
+        get { return instance; }
+    }
+
     private void Awake() 
     {
-        Instance = this; 
+        if(instance != null)
+        {
+            Destroy(instance);
+        }
+        else
+            instance = this;
+
+        // 모든 씬에서 유지
+        DontDestroyOnLoad(this.gameObject);
         Initialize(poolCount); 
     } 
 
@@ -36,16 +49,16 @@ public class ObjectPool : MonoBehaviour {
 
     public static Bullet GetObject()
     {
-        if (Instance.poolingObjectQueue.Count > 0)
+        if (instance.poolingObjectQueue.Count > 0)
         {
-            var obj = Instance.poolingObjectQueue.Dequeue();
+            var obj = instance.poolingObjectQueue.Dequeue();
             obj.transform.SetParent(null); 
             obj.gameObject.SetActive(true); 
             return obj;
         } 
         else
         { 
-            var newObj = Instance.CreateNewObject();
+            var newObj = instance.CreateNewObject();
             newObj.gameObject.SetActive(true);
             newObj.transform.SetParent(null);
             return newObj;
@@ -54,7 +67,7 @@ public class ObjectPool : MonoBehaviour {
     public static void ReturnObject(Bullet obj)
     {
         obj.gameObject.SetActive(false); 
-        obj.transform.SetParent(Instance.transform);
-        Instance.poolingObjectQueue.Enqueue(obj);
+        obj.transform.SetParent(instance.transform);
+        instance.poolingObjectQueue.Enqueue(obj);
     } 
 }
