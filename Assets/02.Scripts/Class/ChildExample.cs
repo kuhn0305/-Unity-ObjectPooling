@@ -14,4 +14,5 @@ public class ChildExample : ClassExample
     {
         base.SampleMethod();
     }
+
 }
