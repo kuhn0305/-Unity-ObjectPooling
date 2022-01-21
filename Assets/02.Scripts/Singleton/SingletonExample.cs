@@ -19,7 +19,7 @@ public class SingletonExample : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public SingletonExample Instance
+    public static SingletonExample Instance
     {
         get { return instance; }
     }
@@ -33,5 +33,10 @@ public class SingletonExample : MonoBehaviour
         }
 
         return instance;
+    }
+
+    public void Method1()
+    {
+
     }
 }
