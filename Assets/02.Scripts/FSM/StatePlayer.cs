@@ -15,8 +15,13 @@ public abstract class StatePlayer : MonoBehaviour
         currentState.Update();
     }
 
-    public virtual void SetState(IState nextState)
+    private void OnCollisionEnter(Collision collision)
+    {
+        currentState.OnCollisionEnter(collision);
+    }
 
+
+    public virtual void SetState(IState nextState)
     {
 
         // 다음 state로 이동구현
