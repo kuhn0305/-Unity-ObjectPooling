@@ -5,6 +5,12 @@ using UnityEngine;
 public class IdleState : IState
 {
     private StatePlayer player;
+
+    public void OnCollisionEnter(Collision collision)
+    {
+
+    }
+
     public void OnEnter(StatePlayer player)
     {
         this.player = player;
